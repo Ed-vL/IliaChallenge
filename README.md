@@ -14,3 +14,8 @@ Para rodar o projeto atrelado a um terminal, execute o comando:
 Para encerrar o projeto, execute o comando:
 
 ``` $ sudo docker-compose down ```
+
+### Endpoints
+Os endpoints desta aplicação estão listados e descritos no swagger, disponível em:
+
+``` http://localhost:5000/swagger/index.html ```
