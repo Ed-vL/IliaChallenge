@@ -38,7 +38,7 @@ namespace IliaStore
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Documents", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "IliaStore", Version = "v1" });
             });
 
             services.AddSingleton<ICustomerRepository>(customerRepository);
@@ -51,7 +51,7 @@ namespace IliaStore
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Documents v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IliaStore v1"));
             }
 
             app.UseRouting();
