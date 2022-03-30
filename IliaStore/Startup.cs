@@ -41,6 +41,7 @@ namespace IliaStore
             });
 
             services.AddSingleton<ICustomerRepository>(customerRepository);
+            services.AddTransient<ICustomerService, CustomerService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
