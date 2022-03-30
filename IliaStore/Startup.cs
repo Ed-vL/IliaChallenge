@@ -11,8 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using IliaStore.Config;
 
-namespace Documents
+namespace IliaStore
 {
     public class Startup
     {
@@ -26,6 +27,8 @@ namespace Documents
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var serverConfig = new ServerConfig();
+            Configuration.Bind(serverConfig);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
