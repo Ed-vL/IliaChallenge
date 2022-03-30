@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using IliaStore.Config;
 using IliaStore.Repository;
+using IliaStore.Services;
 
 namespace IliaStore
 {
