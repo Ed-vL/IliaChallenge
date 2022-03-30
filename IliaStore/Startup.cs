@@ -24,11 +24,12 @@ namespace IliaStore
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var serverConfig = new ServerConfig();
             Configuration.Bind(serverConfig);
+
+            var customerContext = new CustomerContext(serverConfig.MongoDB);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -37,7 +38,6 @@ namespace IliaStore
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
