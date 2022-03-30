@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using IliaStore.Config;
+using IliaStore.Repository;
 
 namespace IliaStore
 {
@@ -31,11 +32,15 @@ namespace IliaStore
 
             var customerContext = new CustomerContext(serverConfig.MongoDB);
 
+            var customerRepository = new CustomerRepository(customerContext);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Documents", Version = "v1" });
             });
+
+            services.AddSingleton<ICustomerRepository>(customerRepository);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
